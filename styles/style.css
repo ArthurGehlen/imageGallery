@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-size: 18px;
+}
+
+body {
+    min-height: 100vh;
+    background-color: hsl(0, 0%, 20%);
+    display: grid;
+    grid-template-columns: 27rem 1fr;
+    grid-template-rows: 18rem auto;
+}
+
+.settings_menu {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;    
+    padding: .4rem;
+}
+
+.settings_menu button {
+    height: fit-content;
+    width: fit-content;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.settings_menu button svg {
+    transition: .4s ease transform, fill;
+}
+
+.settings_menu button svg:hover {
+    transform: rotate(75deg);
+    fill: hsl(0, 0%, 60%);
+}
+
+.settings_menu #menu {
+    background-color: hsl(0, 0%, 60%);
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    opacity: 0;
+    border-radius: 1rem;
+}
+
+.settings_menu #menu .btn_wrapper  {
+    display: flex;
+    justify-content: center;
+} 
+
+.settings_menu #menu .btn_wrapper button {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 90%);
+    border-radius: .6rem;
+    padding: .8rem 4rem;
+    transition: .4s ease background-color;
+}
+
+.settings_menu #menu .btn_wrapper button:hover {
+    background-color: hsl(0, 0%, 40%);
+}
+
+#container {
+    padding: 2rem;
+    height: fit-content;
+    width: fit-content;
+    background-color: hsl(0, 0%, 60%);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#container .card {
+    height: fit-content;
+    width: 18rem;
+    padding: .8rem;
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 90%);
+    border-radius: .8rem;
+    text-align: center;
+}
+
+#container .card img {
+    width: 100%;
+    border-radius: 1rem;
+    margin-bottom: .8rem;
+    filter: brightness(.4);
+    transition: .4s ease filter;
+    cursor: pointer;
+}
+
+#container .card img:hover {
+    filter: brightness(1);
+}
+
+#container .card section {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+#container .card section span {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 0%);
+    color: hsl(0, 0%, 90%);
+    padding: .4rem;
+    transition: .4s ease color, .4s ease background-color;
+}
+
+#container .card section span:hover {
+    background-color: hsl(0, 0%, 60%);
+    color: hsl(0, 0%, 10%);
+}
+
+.show {
+    opacity: 1 !important;
+}
+
+input[type="file"] {
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 90%);
+    cursor: pointer;
+}
+
+textarea {
+    width: 100%;
+    height: 6rem;
+    padding: .6rem;
+    border-radius: .2rem;
+    resize: none;
+    outline: none;
+}
