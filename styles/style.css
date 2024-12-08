@@ -11,7 +11,7 @@ body {
     background-color: hsl(0, 0%, 20%);
     display: grid;
     grid-template-columns: 27rem 1fr;
-    grid-template-rows: 18rem auto;
+    grid-template-rows: 22rem auto;
 }
 
 .settings_menu {
@@ -53,6 +53,18 @@ body {
     display: flex;
     justify-content: center;
 } 
+
+.settings_menu #menu .name_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings_menu #menu .name_wrapper input {
+    padding: .4rem;
+    border-radius: .2rem;
+    outline: none;
+    border: none;
+}
 
 .settings_menu #menu .btn_wrapper button {
     cursor: pointer;
@@ -136,4 +148,13 @@ textarea {
     border-radius: .2rem;
     resize: none;
     outline: none;
+}
+
+.name {
+    text-align: start;
+    text-transform: capitalize;
+    background-color: hsl(0, 0%, 40%);
+    padding: .4rem;
+    margin-bottom: .6rem;
+    border-radius: .4rem;
 }

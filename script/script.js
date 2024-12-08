@@ -1,4 +1,4 @@
-const file_input = document.getElementById('file_input');
+const file_input = document.getElementById("file_input");
 const open_menu_btn = document.getElementById("open_menu_btn");
 const create_card_btn = document.getElementById("create_card_btn");
 const container = document.getElementById("container");
@@ -26,14 +26,19 @@ function verify_date_under_10(date) {
 
 function create_card() {
     const card_description_input = document.getElementById("description_input").value;
+    const name_input = document.getElementById("name_input").value;
     const file = file_input.files[0];
 
-    if (card_description_input && file) {
+    if (file && name_input && card_description_input) {
         let card = document.createElement('div');
         card.className = 'card';
 
         let card_bg = document.createElement('img');
         load_img({ target: { files: [file] } }, card_bg);
+
+        let card_name = document.createElement('p');
+        card_name.textContent = name_input;
+        card_name.className = 'name';
 
         let card_section = document.createElement('section');
 
@@ -55,13 +60,15 @@ function create_card() {
         card_section.appendChild(card_span);
 
         card.appendChild(card_bg);
+        card.appendChild(card_name);
         card.appendChild(card_section);
         container.appendChild(card);
 
         file_input.value = "";
+        card_name.value = "";
         document.getElementById("description_input").value = "";
     } else {
-        alert('O card deve ter uma imagem e descrição.');
+        alert('O card deve ter uma imagem nome e descrição.');
     }
 }
 
