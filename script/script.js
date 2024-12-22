@@ -25,9 +25,9 @@ function verify_date_under_10(date) {
 }
 
 function create_card() {
-    const card_description_input = document.getElementById("description_input").value;
-    const name_input = document.getElementById("name_input").value;
-    const file = file_input.files[0];
+    let card_description_input = document.getElementById("description_input").value;
+    let name_input = document.getElementById("name_input").value;
+    let file = file_input.files[0];
 
     if (file && name_input && card_description_input) {
         let card = document.createElement('div');
@@ -50,8 +50,8 @@ function create_card() {
 
         // Date
         let date = new Date();
-        let day = date.getDay();
-        let month = date.getMonth();
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
         let year = date.getFullYear();
         let hour = date.getHours();
         let minutes = date.getMinutes();
@@ -65,10 +65,10 @@ function create_card() {
         container.appendChild(card);
 
         file_input.value = "";
-        card_name.value = "";
+        document.getElementById("name_input").value = "";
         document.getElementById("description_input").value = "";
     } else {
-        alert('O card deve ter uma imagem nome e descrição.');
+        alert('O card deve ter uma imagem, nome e descrição.');
     }
 }
 
