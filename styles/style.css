@@ -8,7 +8,7 @@
 
 body {
     min-height: 100vh;
-    background-color: hsl(0, 0%, 20%);
+    background-color: #2C2F33;
     display: grid;
     grid-template-columns: 27rem 1fr;
     grid-template-rows: 22rem auto;
@@ -33,13 +33,14 @@ body {
     transition: .4s ease transform, fill;
 }
 
-.settings_menu button svg:hover {
+.settings_menu_clicked {
     transform: rotate(75deg);
     fill: hsl(0, 0%, 60%);
 }
 
 .settings_menu #menu {
-    background-color: hsl(0, 0%, 60%);
+    background-color: #4A4A4A;
+    color: #F8F8F8;
     width: 85%;
     display: flex;
     flex-direction: column;
@@ -68,22 +69,22 @@ body {
 
 .settings_menu #menu .btn_wrapper button {
     cursor: pointer;
-    background-color: hsl(0, 0%, 20%);
+    background-color: #1E90FF;
     color: hsl(0, 0%, 90%);
     border-radius: .6rem;
     padding: .8rem 4rem;
-    transition: .4s ease background-color;
+    transition: .3s ease background-color;
 }
 
 .settings_menu #menu .btn_wrapper button:hover {
-    background-color: hsl(0, 0%, 40%);
+    background-color: #176cc0;
 }
 
 #container {
     padding: 2rem;
     height: fit-content;
     width: fit-content;
-    background-color: hsl(0, 0%, 60%);
+    background-color: #3A3A3A ;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -93,8 +94,8 @@ body {
     height: fit-content;
     width: 18rem;
     padding: .8rem;
-    background-color: hsl(0, 0%, 20%);
-    color: hsl(0, 0%, 90%);
+    background-color: #40444B;
+    color: #F8F8F8;
     border-radius: .8rem;
     text-align: center;
 }

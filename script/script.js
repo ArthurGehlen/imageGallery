@@ -48,7 +48,6 @@ function create_card() {
 
         let card_span = document.createElement('span');
 
-        // Date
         let date = new Date();
         let day = date.getDate();
         let month = date.getMonth() + 1;
@@ -75,6 +74,9 @@ function create_card() {
 function open_menu() {
     let menu = document.getElementById("menu");
     menu.classList.toggle('show');
+
+    let settings_icon = document.getElementById("settings_icon");
+    settings_icon.classList.toggle('settings_menu_clicked');
 }
 
 open_menu_btn.addEventListener('click', open_menu);
