@@ -4,6 +4,7 @@ import AddImage from './components/pages/AddImage';
 import Support from './components/pages/Support';
 
 import Navbar from './components/ui/Navbar';
+import Main from './components/ui/Main';
 import './App.css';
 
 // TODO: Adicionar uma landing page
@@ -18,6 +19,8 @@ function App() {
           <Route path="/support" element={<Support />} />
         </Routes>
       </Router>
+
+      <Main />
     </div>
   );
 }

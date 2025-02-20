@@ -1,0 +1,38 @@
+.main {
+    background-color: #D8EFFF;
+    width: 80%;
+    height: 40rem;
+    margin: 1.5rem auto;
+    padding: 1.65rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 2rem;   
+    border-radius: 25px;
+}
+
+.main h2 {
+    font-weight: 400;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.main img {
+    width: clamp(250px, 70%, 500px);
+}
+
+.main a {
+    text-decoration: none;
+    color: #000000;
+    background-color: #FFFACD;
+    padding: .8rem 3rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: .4s ease background-color, color;
+}
+
+.main a:hover {
+    background-color: #F9E27C;
+}
