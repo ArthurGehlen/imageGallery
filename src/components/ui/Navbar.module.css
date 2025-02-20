@@ -1,0 +1,50 @@
+.navbar {
+    height: 8rem;
+    padding: 0 clamp(8rem, 10vw, 13.75rem);
+    background-color: #2A6F97;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #FFFF;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    transition: .4s ease color;
+}
+
+.navbar ul li a:hover {
+    color: #D1C6F0;
+}
+
+.navbar img {
+    display: none;
+    width: 3rem;
+}
+
+@media screen and (max-width: 810px) {
+    .navbar {
+        padding: 0 2rem;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+
+    .navbar img {
+        display: block;
+    }
+}
