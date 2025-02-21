@@ -9,6 +9,9 @@ function Navbar() {
             <h1>Image Gallery</h1>
             <ul>
                 <li>
+                    <Link to='/'>Home</Link>
+                </li>
+                <li>
                     <Link to='/add_image'>Adicionar Imagem</Link>
                 </li>
                 <li>

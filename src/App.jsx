@@ -1,27 +1,25 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Pages
+import Home from './components/pages/Home';
 import AddImage from './components/pages/AddImage';
 import Support from './components/pages/Support';
 
+// Components
 import Navbar from './components/ui/Navbar';
-import Main from './components/ui/Main';
-import './App.css';
-
-// TODO: Adicionar uma landing page
+import Footer from './components/ui/Footer'
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/add_image" element={<AddImage />} />
-          <Route path="/support" element={<Support />} />
-        </Routes>
-      </Router>
-
-      <Main />
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path="/add_image" element={<AddImage />} />
+        <Route path="/support" element={<Support />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
