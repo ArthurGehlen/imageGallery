@@ -1,6 +1,15 @@
+import Main from "../ui/Main"
+
+// Assets
+import styles from './Support.module.css'
+
 function Suport() {
     return (
-        <p>Suport</p>
+        <Main page='support'>
+            <form action="#" className={styles.form}>
+                            
+            </form>
+        </Main>
     )
 }
 

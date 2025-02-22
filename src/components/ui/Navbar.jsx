@@ -1,5 +1,7 @@
+// Hooks
 import { Link } from 'react-router-dom'
 
+// Assets
 import menu_Icon from '../../imgs/menu_icon.svg';
 import styles from './Navbar.module.css'
 
@@ -12,7 +14,7 @@ function Navbar() {
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/add_image'>Adicionar Imagem</Link>
+                    <Link to='/add_image'>Criar Card</Link>
                 </li>
                 <li>
                     <Link to='/support'>Suporte</Link>

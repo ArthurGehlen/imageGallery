@@ -13,7 +13,7 @@ function Home() {
                 Ops! Parece que ainda não temos nada aqui. <br />
                 Que tal começar adicionando algo?
             </h2>
-            <Link to='/add_image'>Adicionar Imagem</Link>
+            <Link to='/add_image'>Criar Card</Link>
         </main>
     )
 }
