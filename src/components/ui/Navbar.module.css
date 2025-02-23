@@ -30,9 +30,45 @@
     color: #D1C6F0;
 }
 
-.navbar img {
+.navbar button {
     display: none;
     width: 3rem;
+    background-color: transparent;
+    border: none;
+}
+
+.navbar button img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #2A6F97;
+    height: 100vh;
+    width: 100vw;
+}
+
+.menu header {
+    height: 8rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu nav ul {
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu nav ul li a {
+    font-size: 1.8rem;
 }
 
 @media screen and (max-width: 810px) {
@@ -44,7 +80,7 @@
         display: none;
     }
 
-    .navbar img {
+    .navbar button {
         display: block;
     }
 }

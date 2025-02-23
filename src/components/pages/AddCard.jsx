@@ -5,11 +5,11 @@ import { useState } from 'react'
 import Main from "../ui/Main"
 
 // Assets
-import styles from './AddImage.module.css'
+import styles from './AddCard.module.css'
 
 // TODO: Fazer um Button de visualização de card
 
-function AddImage() {
+function AddCard() {
     const [file, setFile] = useState(null)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
@@ -21,9 +21,16 @@ function AddImage() {
         }
     }
 
+    const handle_submit = (e) => {
+        e.preventDefault()
+
+        // console.log(title);
+        // console.log(description);
+    }
+
     return (
         <Main page='add_image'>
-            <form action="#" className={styles.form}>
+            <form onSubmit={handle_submit} className={styles.form}>
                 <div className="file">
                     <span>Escolha uma imagem:</span>
                     <label htmlFor="file" className={styles.file_input}>
@@ -42,13 +49,16 @@ function AddImage() {
                         type="text"
                         placeholder='...'
                         id="title"
+                        onChange={(e) => setTitle(e.target.value)}
                         required />
                 </div>
                 <div className="description">
                     <label htmlFor="description">Escreva uma descrição:</label>
                     <textarea
                         id="description"
-                        placeholder='(opcional)'></textarea>
+                        placeholder='(opcional)'
+                        onChange={(e) => setDescription(e.target.value)}>
+                    </textarea>
                 </div>
                 <button type='submit'>Criar Card</button>
                 <hr />
@@ -58,4 +68,4 @@ function AddImage() {
     )
 }
 
-export default AddImage
+export default AddCard

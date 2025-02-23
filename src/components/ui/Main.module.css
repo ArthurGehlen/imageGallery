@@ -5,9 +5,52 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
-    gap: 2rem;   
+    align-items: center;
+    gap: 2rem;
     border-radius: 25px;
+}
+
+.main div {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.main div label,
+span {
+    font-size: clamp(20px, 3vw, 1.6rem);
+    font-weight: 500;
+}
+
+main div input[type="text"], input[type="email"] {
+    height: 2.8rem;
+    padding: .8rem;
+    font-size: 1.2rem;
+}
+
+main div textarea {
+    resize: none;
+    height: 4rem;
+    padding: .6rem .8rem;
+    font-size: 1rem;
+}
+
+main button {
+    background-color: #D6E8FF;
+    color: #2A6F97;
+    cursor: pointer;
+    transition: .4s ease background-color, color;
+    padding: .6rem 4.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: clamp(.8rem, 3vw, 1.4rem); 
+}
+
+main button:hover {
+    background-color: #B5D4FF;
+    color: #FFFFFF;
 }
 
 .add_image {

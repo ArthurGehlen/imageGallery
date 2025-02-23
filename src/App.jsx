@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Pages
 import Home from './components/pages/Home';
-import AddImage from './components/pages/AddImage';
+import AddCard from './components/pages/AddCard';
 import Support from './components/pages/Support';
 
 // Components
@@ -16,7 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />}></Route>
-        <Route path="/add_image" element={<AddImage />} />
+        <Route path="/add_card" element={<AddCard />} />
         <Route path="/support" element={<Support />} />
       </Routes>
       <Footer />
