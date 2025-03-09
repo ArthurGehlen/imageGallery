@@ -1,14 +1,25 @@
-.main {
+main {
     background-color: #D8EFFF;
     width: 80%;
     height: 40rem;
     margin: 1.5rem auto;
-    display: flex;
+    border-radius: 25px;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.main {
+    display: flex;;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    gap: 2rem;   
-    border-radius: 25px;
+    gap: 2rem;
+}
+
+.main_with_cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 .main h2 {
@@ -35,4 +46,30 @@
 
 .main a:hover {
     background-color: #F9E27C;
+}
+
+.card {
+    width: 21.5rem;
+    height: 36rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #FAF3E0;
+    display: flex;
+    flex-direction: column; 
+    gap: 1.5rem;
+}
+
+.card h2, p {
+    text-align: center;
+}
+
+.card p {
+    height: 25%;
+}
+
+.card img {
+    width: 100%;         
+    height: 50%;         
+    border-radius: 5px;  
+    object-fit: cover;   
 }

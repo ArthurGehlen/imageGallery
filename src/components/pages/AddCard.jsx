@@ -1,5 +1,6 @@
 // Hooks
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 // Components
 import Main from "../ui/Main"
@@ -7,41 +8,53 @@ import Main from "../ui/Main"
 // Assets
 import styles from './AddCard.module.css'
 
-// TODO: Fazer um Button de visualização de card
-
 function AddCard() {
-    const [file, setFile] = useState(null)
+    const [image, setImage] = useState(null)
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+    const navigate = useNavigate()
 
-    const handle_file_change = (e) => {
-        const selectedFile = e.target.files[0];
-        if (selectedFile) {
-            setFile(selectedFile);
+    const handle_image_upload = (event) => {
+        const file = event.target.files[0]
+        if (file) {
+            const reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onload = () => {
+                const new_image = { id: Date.now(), image: reader.result }
+                const updated_images = JSON.parse(localStorage.getItem("imageDB")) || []
+                updated_images.push(new_image)
+                localStorage.setItem("imageDB", JSON.stringify(updated_images))
+                setImage(reader.result)
+            };
+            reader.onerror = (error) => console.error("Erro ao converter imagem: ", error)
         }
-    }
-
-    const handle_submit = (e) => {
-        e.preventDefault()
-
-        // console.log(title);
-        // console.log(description);
-    }
+    };
+    
+    const handle_submit = (event) => {
+        event.preventDefault()
+        
+        const new_card = { id: Date.now(), title, description, image: image }
+    
+        const updated_cards = JSON.parse(localStorage.getItem("cardDB")) || []
+        updated_cards.push(new_card);
+        localStorage.setItem("cardDB", JSON.stringify(updated_cards))
+    
+        navigate("/")
+    };    
 
     return (
         <Main page='add_image'>
-            <form onSubmit={handle_submit} className={styles.form}>
+            <form className={styles.form} onSubmit={handle_submit}>
                 <div className="file">
                     <span>Escolha uma imagem:</span>
-                    <label htmlFor="file" className={styles.file_input}>
-                        <input
+                    <label htmlFor="input_file" className={styles.input_file}>Enviar Imagem</label>
+                    <input
                             type="file"
-                            placeholder='Enviar imagem'
-                            id="file"
+                            accept='image/*'
+                            id='input_file'
+                            onChange={handle_image_upload}
                             required
-                        />
-                        Enviar imagem
-                    </label>
+                    />
                 </div>
                 <div className="title">
                     <label htmlFor="title">Escreva um título:</label>
@@ -49,20 +62,22 @@ function AddCard() {
                         type="text"
                         placeholder='...'
                         id="title"
+                        value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        required />
+                        required
+                    />
                 </div>
                 <div className="description">
                     <label htmlFor="description">Escreva uma descrição:</label>
                     <textarea
                         id="description"
                         placeholder='(opcional)'
+                        value={description}
                         onChange={(e) => setDescription(e.target.value)}>
                     </textarea>
                 </div>
-                <button type='submit'>Criar Card</button>
+                <button type="submit">Criar Card</button>
                 <hr />
-                {/* {file && <img src={URL.createObjectURL(file)} alt="Preview" width="200" />} */}
             </form>
         </Main>
     )
