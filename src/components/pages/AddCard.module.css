@@ -38,3 +38,9 @@ input[type="file"] {
     background-color: #D9D9D9;
     width: 100%;
 }
+
+@media screen and (max-width: 500px) {
+    .form {
+        padding: 0;
+    }
+}

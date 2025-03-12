@@ -71,8 +71,9 @@ function AddCard() {
                     <label htmlFor="description">Escreva uma descrição:</label>
                     <textarea
                         id="description"
-                        placeholder='(opcional)'
+                        placeholder='Tamanho máximo: 150 palavras'
                         value={description}
+                        maxLength={150}
                         onChange={(e) => setDescription(e.target.value)}>
                     </textarea>
                 </div>

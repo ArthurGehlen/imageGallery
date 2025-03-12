@@ -1,5 +1,6 @@
 // Hooks
 import { useState, useEffect } from 'react'
+import { IoMdClose } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 
 // Assets
@@ -8,10 +9,17 @@ import empty_container_img from '../../imgs/empty_container_img.svg'
 
 function Home() {
     const [images, setImages] = useState([])
+    
+    const delete_card = (id) => {
+        const stored_images = JSON.parse(localStorage.getItem("cardDB")) || []
+        const updated_images = stored_images.filter((image) => image.id !== id)
+        localStorage.setItem("cardDB", JSON.stringify(updated_images))
+        setImages(updated_images)
+    }
 
     useEffect(() => {
-        const storedImages = JSON.parse(localStorage.getItem("cardDB")) || []
-        setImages(storedImages);
+        const stored_images = JSON.parse(localStorage.getItem("cardDB")) || []
+        setImages(stored_images)
     }, [])
 
     return (
@@ -29,7 +37,10 @@ function Home() {
                 <div className={styles.main_with_cards}>
                     {images.map((img) => (
                         <div key={img.id} className={styles.card}>
-                            <img src={img.image} alt="Imagem salva" />
+                            <button onClick={() => delete_card(img.id)} className='delete_button'>
+                                <IoMdClose />
+                            </button>
+                            <img src={img.image} alt={`Imagem do card ${img.id}`} />
                             <h2>{img.title}</h2>
                             <p>{img.description}</p>
                         </div>
