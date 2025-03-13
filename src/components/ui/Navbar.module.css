@@ -8,6 +8,17 @@
     align-items: center;
 }
 
+.logo {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo img {
+    width: 6rem;
+}
+
 .navbar h1 {
     font-size: 2.2rem;
     font-weight: 400;
@@ -54,9 +65,13 @@
 .menu header {
     height: 8rem;
     width: 100%;
-    display: flex;
+    display: flex;  
     align-items: center;
     justify-content: space-around;
+}
+
+.menu header .logo {
+    width: 4rem;
 }
 
 .menu nav ul {
@@ -76,6 +91,10 @@
         padding: 0 2rem;
     }
 
+    .logo img {
+        display: none;
+    }
+    
     .navbar ul {
         display: none;
     }

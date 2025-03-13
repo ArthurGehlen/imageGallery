@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
 // Assets
-import menu_Icon from '../../imgs/menu_icon.svg';
+import menu_Icon from '../../imgs/menu_icon.svg'
+import logo from '../../imgs/logo.svg'
 import close_menu_icon from '../../imgs/close_icon.svg'
 import styles from './Navbar.module.css'
 
@@ -16,7 +17,10 @@ function Navbar(props) {
 
     return (
         <nav className={styles.navbar}>
-            <h1>Image Gallery</h1>
+            <div className={styles.logo}>
+                <img src={logo} alt="Logo" />
+                <h1>Image Gallery</h1>
+            </div>
             <ul>
                 <li>
                     <Link to='/'>Home</Link>
@@ -34,6 +38,7 @@ function Navbar(props) {
             {showMenu &&
                 <div className={`${styles.menu} ${props.page}`}>
                     <header>
+                        <img src={logo} className={styles.logo} alt="Logo" />
                         <h1>Image Gallery</h1>
                         <button onClick={handle_menu}>
                             <img src={close_menu_icon} alt="Fechar" />
