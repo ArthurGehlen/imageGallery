@@ -9,7 +9,7 @@ import empty_container_img from '../../imgs/empty_container_img.svg'
 
 function Home() {
     const [images, setImages] = useState([])
-    
+
     const delete_card = (id) => {
         const stored_images = JSON.parse(localStorage.getItem("cardDB")) || []
         const updated_images = stored_images.filter((image) => image.id !== id)
@@ -43,6 +43,8 @@ function Home() {
                             <img src={img.image} alt={`Imagem do card ${img.id}`} />
                             <h2>{img.title}</h2>
                             <p>{img.description}</p>
+                            {img.add_date === true &&
+                                <p className={styles.date}>Data: {img.date}</p>}
                         </div>
                     ))}
                 </div>
