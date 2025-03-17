@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 // Components
 import Main from "../ui/Main"
+import Message from '../ui/Message'
 
 // Assets
 import styles from './AddCard.module.css'
@@ -14,6 +15,7 @@ function AddCard() {
     const [description, setDescription] = useState("")
     const [add_date, setAddDate] = useState(false)
     const [date, setDate] = useState("")
+    const [message, setMessage] = useState("")
     const navigate = useNavigate()
 
     const handle_image_upload = (event) => {
@@ -49,9 +51,16 @@ function AddCard() {
     }
 
     const set_date = () => {
-        setAddDate(!add_date)
+        const new_add_date = !add_date
+        setAddDate(new_add_date)
+
+        if (new_add_date) {
+            setMessage("Data adicionada com sucesso!")  
+        } else {
+            setMessage("Data removida com sucesso!") 
+        }
+        
         display_date()
-        console.log(add_date)
     }
 
     const handle_submit = (event) => {
@@ -98,7 +107,7 @@ function AddCard() {
                         placeholder='Tamanho máximo: 150 palavras'
                         value={description}
                         maxLength={150}
-                        onChange={(e) => setDescription(e.target.value)}>
+                        onChange={(e) => setDescription(e.target.value)} >
                     </textarea>
                 </div>
                 <button type="submit">Criar Card</button>
@@ -107,6 +116,7 @@ function AddCard() {
             <div className={styles.atributes}>
                 <button onClick={set_date}>Adicionar Data</button>
             </div>
+            {message && <Message msg={message} type='success' />}
         </Main>
     )
 }
