@@ -1,4 +1,3 @@
-// Hooks
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -55,23 +54,24 @@ function AddCard() {
         setAddDate(new_add_date)
 
         if (new_add_date) {
-            setMessage("Data adicionada com sucesso!")  
+            setMessage("Data adicionada com sucesso!")
         } else {
-            setMessage("Data removida com sucesso!") 
+            setMessage("Data removida com sucesso!")
         }
-        
+
         display_date()
     }
 
     const handle_submit = (event) => {
         event.preventDefault()
 
-        const new_card = { id: Date.now(), title, description, image: image, add_date: add_date, date: date}
+        const new_card = { id: Date.now(), title, description, image: image, add_date: add_date, date: date, message: 'Card adicionado com sucesso!'}
 
         const updated_cards = JSON.parse(localStorage.getItem("cardDB")) || []
         updated_cards.push(new_card);
         localStorage.setItem("cardDB", JSON.stringify(updated_cards))
 
+        localStorage.setItem("successMessage", "Imagem adicionada com sucesso!")
         navigate("/")
     }
 

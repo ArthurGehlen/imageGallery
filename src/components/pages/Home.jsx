@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom'
 // Assets
 import styles from './Home.module.css'
 import empty_container_img from '../../imgs/empty_container_img.svg'
+import Message from '../ui/Message'
 
 function Home() {
     const [images, setImages] = useState([])
+    const [message, setMessage] = useState('')
 
     const delete_card = (id) => {
         const stored_images = JSON.parse(localStorage.getItem("cardDB")) || []
@@ -20,6 +22,15 @@ function Home() {
     useEffect(() => {
         const stored_images = JSON.parse(localStorage.getItem("cardDB")) || []
         setImages(stored_images)
+
+        const success_message = localStorage.getItem("successMessage")
+        if (success_message) {
+            setMessage(success_message)
+            setTimeout(() => {
+                setMessage('')
+                localStorage.removeItem("successMessage")
+            }, 3000)
+        }
     }, [])
 
     return (
@@ -35,6 +46,7 @@ function Home() {
                 </div>
             ) : (
                 <div className={styles.main_with_cards}>
+                    {message && <Message msg={message} />}
                     {images.map((img) => (
                         <div key={img.id} className={styles.card}>
                             <button onClick={() => delete_card(img.id)} className='delete_button'>
